@@ -22,6 +22,7 @@ public class Login extends javax.swing.JFrame {
     private ControlLogin controlLogin = new ControlLogin();
     public Login() {
         initComponents();
+        System.out.println("Nia can");
     }
 
     /**
