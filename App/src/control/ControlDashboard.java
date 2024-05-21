@@ -7,6 +7,7 @@ import config.Config;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
@@ -67,6 +68,7 @@ public class ControlDashboard {
     }
     
     public void loadData(DefaultTableModel model) {
+        DecimalFormat df = new DecimalFormat("#,##0.##");
         String query = "SELECT dtl.ID_Layanan, lyn.Tipe_Layanan, lyn.ID_Jenis_Layanan, \n" +
                         "jns.Nama_Layanan, lyn.Harga, COUNT(dtl.ID_Layanan) AS Jumlah \n" +
                         "FROM detail_transaksi dtl JOIN layanan lyn \n" +
@@ -83,7 +85,7 @@ public class ControlDashboard {
                 String namaLayanan = jenisLayanan.concat(" - ").concat(tipeLayanan);
                 String harga = rst.getString("Harga");
                 String jumlah = rst.getString("Jumlah");
-                model.addRow(new String[]{idLayanan, namaLayanan, harga, jumlah});
+                model.addRow(new String[]{idLayanan, namaLayanan, df.format(Double.parseDouble(harga)), jumlah});
             }
         } catch(Exception ex) {
             ex.printStackTrace();

@@ -17,6 +17,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import model.ModelHeaderTable;
 import model.ModelRenderTable;
+import model.ModelUser;
 import model.ModelVoucher;
 import net.sf.jasperreports.engine.JRException;
 import report.FieldVoucher;
@@ -54,8 +56,11 @@ public class Voucher extends javax.swing.JPanel {
     private TableRowSorter<DefaultTableModel> rowSorter;
     private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     private ControlVoucher controlVoucher = new ControlVoucher();
-    public Voucher() {
+    public Voucher(ModelUser modelUser) {
         initComponents();
+        if(modelUser.getLevel().equals("Admin")) {
+            panelForm.setVisible(false);   
+        }
         instance();
         txtKdVoucher.setText(controlVoucher.autoID());
         txtTglPembuatan.setText(sdf.format(new Date()));
@@ -372,12 +377,13 @@ public class Voucher extends javax.swing.JPanel {
     
 //    Tampil Data
     private void tampilData() {
+        DecimalFormat df = new DecimalFormat("#,##0.##");
         for(ModelVoucher modelVoucher : controlVoucher.getData()) {
             tabmodel.addRow(new Object[]{
             modelVoucher.getKodeVoucher(),
             modelVoucher.getTglPembuatan(),
             modelVoucher.getTglBerakhir(),
-            modelVoucher.getBesarVoucher(),
+            df.format(modelVoucher.getBesarVoucher()),
             modelVoucher.getStatus()
             });
         }

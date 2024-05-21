@@ -6,6 +6,7 @@ package features;
 
 import control.ControlDashboard;
 import java.awt.Color;
+import java.text.DecimalFormat;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -14,10 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import model.ModelHeaderTable;
 import model.ModelRenderTable;
 
-/**
- *
- * @author usER
- */
+
 public class Dashboard extends javax.swing.JPanel {
 
     /**
@@ -27,11 +25,12 @@ public class Dashboard extends javax.swing.JPanel {
     private ControlDashboard controlDashboard = new ControlDashboard();
     public Dashboard() {
         initComponents();
+        DecimalFormat df = new DecimalFormat("#,##0.##");
         styleTable(scrollTableData, tableData, 4);
         tabmodel1 = (DefaultTableModel) tableData.getModel();
         controlDashboard.loadData(tabmodel1);
         lbTotalCustomer.setText(String.valueOf(controlDashboard.totalTransaksiCustomer()));
-        lbTotalPendapatan.setText(String.valueOf(controlDashboard.totalPendapatan()));
+        lbTotalPendapatan.setText(df.format(controlDashboard.totalPendapatan()));
         lbTotalVoucher.setText(String.valueOf(controlDashboard.totalVoucher()));
     }
     
@@ -245,7 +244,7 @@ public class Dashboard extends javax.swing.JPanel {
             .addGroup(panel4Layout.createSequentialGroup()
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(scrollTableData, javax.swing.GroupLayout.DEFAULT_SIZE, 753, Short.MAX_VALUE))
+                .addComponent(scrollTableData, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelDataLayout = new javax.swing.GroupLayout(panelData);
@@ -253,13 +252,13 @@ public class Dashboard extends javax.swing.JPanel {
         panelDataLayout.setHorizontalGroup(
             panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDataLayout.createSequentialGroup()
-                .addContainerGap(144, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(85, 85, 85)
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(90, 90, 90)
                 .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
             .addComponent(lbHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );

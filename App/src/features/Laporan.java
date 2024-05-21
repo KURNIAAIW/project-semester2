@@ -9,6 +9,7 @@ import control.ControlTransaksi;
 import event.TableEvent;
 import java.awt.Color;
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JPanel;
@@ -158,16 +159,12 @@ public class Laporan extends javax.swing.JPanel {
         panelTotal.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel24.setFont(new java.awt.Font("Dialog", 1, 26)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("TOTAL");
 
-        txtTotal.setBackground(new java.awt.Color(255, 255, 255));
         txtTotal.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        txtTotal.setForeground(new java.awt.Color(0, 0, 0));
         txtTotal.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtTotal.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(185, 185, 185)));
 
-        txtCari.setBackground(new java.awt.Color(255, 255, 255));
         txtCari.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtCari.setForeground(new java.awt.Color(185, 185, 185));
         txtCari.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -180,7 +177,6 @@ public class Laporan extends javax.swing.JPanel {
         });
 
         chooserFrom.setBackground(new java.awt.Color(255, 255, 255));
-        chooserFrom.setForeground(new java.awt.Color(0, 0, 0));
         chooserFrom.setDateFormatString("dd - MMMM - yyyy");
         chooserFrom.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
 
@@ -196,16 +192,13 @@ public class Laporan extends javax.swing.JPanel {
         });
 
         chooserTo.setBackground(new java.awt.Color(255, 255, 255));
-        chooserTo.setForeground(new java.awt.Color(0, 0, 0));
         chooserTo.setDateFormatString("dd - MMMM - yyyy");
         chooserTo.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Dari");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Sampai");
 
         javax.swing.GroupLayout panelTotalLayout = new javax.swing.GroupLayout(panelTotal);
@@ -336,7 +329,7 @@ public class Laporan extends javax.swing.JPanel {
             modelTransaksi.getNoTransaksi(), modelTransaksi.getTglTransaksi(),
             modelTransaksi.getModelCustomer().getIdCustomer(),
             modelTransaksi.getModelCustomer().getNamaCustomer(),
-            modelTransaksi.getTotal(), modelTransaksi.getBayar(),
+            df.format(modelTransaksi.getTotal()), modelTransaksi.getBayar(),
             modelTransaksi.getKembali(), modelTransaksi.getJenisPembayaran(),
             modelTransaksi.getModelKaryawan().getIdKaryawan(), 
             modelTransaksi.getModelKaryawan().getNamaKaryawan(),
@@ -351,7 +344,13 @@ public class Laporan extends javax.swing.JPanel {
         String tglTransaksi = (String) tableData.getValueAt(row, 1);
         String idCustomer = (String) tableData.getValueAt(row, 2);
         String namaCustomer = (String) tableData.getValueAt(row, 3);
-        double total = (double) tableData.getValueAt(row, 4);
+        double total = 0;
+        try {
+            Number number = df.parse(tableData.getValueAt(row, 4).toString());
+            total = number.doubleValue();
+        } catch(ParseException ex) {
+            ex.printStackTrace();
+        }
         double bayar = (double) tableData.getValueAt(row, 5);
         double kembali = (double) tableData.getValueAt(row, 6);
         String jenisPembayaran = (String) tableData.getValueAt(row, 7);
@@ -374,8 +373,14 @@ public class Laporan extends javax.swing.JPanel {
 //    Total
     private double totalTransaksi() {
         double total = 0;
+        double subtotal = 0;
         for(int a = 0; a < tableData.getRowCount(); a++) {
-            double subtotal = (double) tableData.getValueAt(a, 4);
+            try {
+                Number number = df.parse(tableData.getValueAt(a, 4).toString());
+                subtotal = number.doubleValue();
+            } catch(ParseException ex) {
+                ex.printStackTrace();
+            }
             total+=subtotal;
         }
         return total;
@@ -390,7 +395,7 @@ public class Laporan extends javax.swing.JPanel {
             modelTransaksi.getNoTransaksi(), modelTransaksi.getTglTransaksi(),
             modelTransaksi.getModelCustomer().getIdCustomer(),
             modelTransaksi.getModelCustomer().getNamaCustomer(),
-            modelTransaksi.getTotal(), modelTransaksi.getBayar(),
+            df.format(modelTransaksi.getTotal()), modelTransaksi.getBayar(),
             modelTransaksi.getKembali(), modelTransaksi.getJenisPembayaran(),
             modelTransaksi.getModelKaryawan().getIdKaryawan(), 
             modelTransaksi.getModelKaryawan().getNamaKaryawan(),

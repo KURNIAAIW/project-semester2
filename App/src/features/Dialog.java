@@ -394,7 +394,7 @@ public class Dialog extends java.awt.Dialog {
                 double diskon = rst.getDouble("Diskon");
                 double subtotal = rst.getDouble("Subtotal_Transaksi");
                 String kodeVoucher = rst.getString("Kode_Voucher");
-                tabmodel.addRow(new Object[]{idLayanan, namaLayanan, harga, diskon, kodeVoucher, subtotal});
+                tabmodel.addRow(new Object[]{idLayanan, namaLayanan, df.format(harga), df.format(diskon), kodeVoucher, df.format(subtotal)});
             }
         } catch(Exception ex) {
             ex.printStackTrace();

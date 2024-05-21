@@ -10,6 +10,7 @@ import event.TableEvent;
 import java.awt.Color;
 import java.awt.Font;
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -157,7 +158,6 @@ public class Transaksi extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(149, 2, 179));
         jLabel1.setText("TRANSAKSI");
 
-        txtCari.setBackground(new java.awt.Color(255, 255, 255));
         txtCari.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtCari.setForeground(new java.awt.Color(185, 185, 185));
         txtCari.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -266,11 +266,9 @@ public class Transaksi extends javax.swing.JPanel {
         });
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("ID Customer");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Nama          ");
 
         jLabel5.setBackground(new java.awt.Color(149, 2, 179));
@@ -281,22 +279,16 @@ public class Transaksi extends javax.swing.JPanel {
         jLabel5.setOpaque(true);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Nama           ");
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("ID Pelayan   ");
 
-        txtIdPelayan.setBackground(new java.awt.Color(255, 255, 255));
         txtIdPelayan.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        txtIdPelayan.setForeground(new java.awt.Color(0, 0, 0));
         txtIdPelayan.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtIdPelayan.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(185, 185, 185)));
 
-        txtNamaPelayan.setBackground(new java.awt.Color(255, 255, 255));
         txtNamaPelayan.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        txtNamaPelayan.setForeground(new java.awt.Color(0, 0, 0));
         txtNamaPelayan.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtNamaPelayan.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(185, 185, 185)));
 
@@ -308,30 +300,22 @@ public class Transaksi extends javax.swing.JPanel {
         jLabel8.setOpaque(true);
 
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("ID Layanan");
 
         jLabel10.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Layanan");
 
-        txtLayanan.setBackground(new java.awt.Color(255, 255, 255));
         txtLayanan.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        txtLayanan.setForeground(new java.awt.Color(0, 0, 0));
         txtLayanan.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtLayanan.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(185, 185, 185)));
 
         jLabel11.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Harga");
 
-        txtHarga.setBackground(new java.awt.Color(255, 255, 255));
         txtHarga.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        txtHarga.setForeground(new java.awt.Color(0, 0, 0));
         txtHarga.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtHarga.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(185, 185, 185)));
 
-        txtVoucher.setBackground(new java.awt.Color(255, 255, 255));
         txtVoucher.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
         txtVoucher.setForeground(new java.awt.Color(185, 185, 185));
         txtVoucher.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -354,40 +338,29 @@ public class Transaksi extends javax.swing.JPanel {
         });
 
         jLabel12.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Voucher");
 
         jLabel13.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Subtotal");
 
-        txtIdLayanan.setBackground(new java.awt.Color(255, 255, 255));
         txtIdLayanan.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        txtIdLayanan.setForeground(new java.awt.Color(0, 0, 0));
         txtIdLayanan.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtIdLayanan.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(185, 185, 185)));
 
-        txtSubtotal.setBackground(new java.awt.Color(255, 255, 255));
         txtSubtotal.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        txtSubtotal.setForeground(new java.awt.Color(0, 0, 0));
         txtSubtotal.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtSubtotal.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(185, 185, 185)));
 
         jLabel20.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("Bayar");
 
         jLabel21.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jLabel21.setText("Kembali");
 
         jLabel22.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("Jenis Pembayaran");
 
-        txtBayar.setBackground(new java.awt.Color(255, 255, 255));
         txtBayar.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        txtBayar.setForeground(new java.awt.Color(0, 0, 0));
         txtBayar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtBayar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(185, 185, 185)));
         txtBayar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -399,9 +372,7 @@ public class Transaksi extends javax.swing.JPanel {
             }
         });
 
-        txtKembali.setBackground(new java.awt.Color(255, 255, 255));
         txtKembali.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        txtKembali.setForeground(new java.awt.Color(0, 0, 0));
         txtKembali.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtKembali.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(185, 185, 185)));
 
@@ -436,14 +407,10 @@ public class Transaksi extends javax.swing.JPanel {
             }
         });
 
-        cbxJenisPembayaran.setBackground(new java.awt.Color(255, 255, 255));
         cbxJenisPembayaran.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        cbxJenisPembayaran.setForeground(new java.awt.Color(0, 0, 0));
         cbxJenisPembayaran.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(185, 185, 185)));
 
-        txtIdCustomer.setBackground(new java.awt.Color(255, 255, 255));
         txtIdCustomer.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        txtIdCustomer.setForeground(new java.awt.Color(0, 0, 0));
         txtIdCustomer.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtIdCustomer.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(185, 185, 185)));
 
@@ -459,15 +426,12 @@ public class Transaksi extends javax.swing.JPanel {
             }
         });
 
-        txtNamaCustomer.setBackground(new java.awt.Color(255, 255, 255));
         txtNamaCustomer.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        txtNamaCustomer.setForeground(new java.awt.Color(0, 0, 0));
         txtNamaCustomer.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtNamaCustomer.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(185, 185, 185)));
 
         lbKodeVoucher.setBackground(new java.awt.Color(255, 255, 255));
         lbKodeVoucher.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lbKodeVoucher.setForeground(new java.awt.Color(0, 0, 0));
         lbKodeVoucher.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbKodeVoucher.setText("-");
 
@@ -656,12 +620,9 @@ public class Transaksi extends javax.swing.JPanel {
         panelTotal.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel24.setFont(new java.awt.Font("Dialog", 1, 26)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("TOTAL");
 
-        txtTotal.setBackground(new java.awt.Color(255, 255, 255));
         txtTotal.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        txtTotal.setForeground(new java.awt.Color(0, 0, 0));
         txtTotal.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtTotal.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(185, 185, 185)));
 
@@ -687,15 +648,11 @@ public class Transaksi extends javax.swing.JPanel {
             }
         });
 
-        txtNoTransaksi.setBackground(new java.awt.Color(255, 255, 255));
         txtNoTransaksi.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        txtNoTransaksi.setForeground(new java.awt.Color(0, 0, 0));
         txtNoTransaksi.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNoTransaksi.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(185, 185, 185)));
 
-        txtTgl.setBackground(new java.awt.Color(255, 255, 255));
         txtTgl.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        txtTgl.setForeground(new java.awt.Color(0, 0, 0));
         txtTgl.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTgl.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(185, 185, 185)));
 
@@ -743,7 +700,6 @@ public class Transaksi extends javax.swing.JPanel {
         jLabel2.setText("Tambah Transaksi");
         jLabel2.setOpaque(true);
 
-        btnKembali.setBackground(new java.awt.Color(255, 255, 255));
         btnKembali.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnKembali.setForeground(new java.awt.Color(149, 2, 179));
         btnKembali.setText("KEMBALI");
@@ -995,7 +951,7 @@ public class Transaksi extends javax.swing.JPanel {
             modelTransaksi.getNoTransaksi(), modelTransaksi.getTglTransaksi(),
             modelTransaksi.getModelCustomer().getIdCustomer(),
             modelTransaksi.getModelCustomer().getNamaCustomer(),
-            modelTransaksi.getTotal(), modelTransaksi.getBayar(),
+            df.format(modelTransaksi.getTotal()), modelTransaksi.getBayar(),
             modelTransaksi.getKembali(), modelTransaksi.getJenisPembayaran(),
             modelTransaksi.getModelKaryawan().getIdKaryawan(), 
             modelTransaksi.getModelKaryawan().getNamaKaryawan(),
@@ -1010,7 +966,13 @@ public class Transaksi extends javax.swing.JPanel {
         String tglTransaksi = (String) tableData.getValueAt(row, 1);
         String idCustomer = (String) tableData.getValueAt(row, 2);
         String namaCustomer = (String) tableData.getValueAt(row, 3);
-        double total = (double) tableData.getValueAt(row, 4);
+        double total = 0;
+        try {
+            Number number = df.parse(tableData.getValueAt(row, 4).toString());
+            total = number.doubleValue();
+        } catch(ParseException ex) {
+            ex.printStackTrace();
+        }
         double bayar = (double) tableData.getValueAt(row, 5);
         double kembali = (double) tableData.getValueAt(row, 6);
         String jenisPembayaran = (String) tableData.getValueAt(row, 7);

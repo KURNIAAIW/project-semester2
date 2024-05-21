@@ -312,7 +312,7 @@ public class Main extends javax.swing.JFrame {
                         break;
                     case 11:
     //                        Vocuher
-                        showContent(new Voucher());
+                        showContent(new Voucher(modelUser));
                         break;
                     case 12:
     //                        Laporan
@@ -330,7 +330,7 @@ public class Main extends javax.swing.JFrame {
                             showContent(new Transaksi(modelUser));
                             break;
                         case 3:
-                            showContent(new Voucher());
+                            showContent(new Voucher(modelUser));
                             break;
                         case 4:
                             showContent(new Laporan());
